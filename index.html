@@ -19,6 +19,8 @@
             emailjs.init("_G714NUKQD1e--o-X");
         })();
     </script>
+    <!-- Animation Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
@@ -559,6 +561,14 @@
                         contactForm.style.display = 'none';
                         successMsg.style.display = 'flex';
                         successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        
+                        // Disparar confeti de celebración
+                        confetti({
+                            particleCount: 150,
+                            spread: 70,
+                            origin: { y: 0.6 },
+                            colors: ['#007cf0', '#00dfd8', '#10b981', '#ffffff']
+                        });
                     }, (err) => {
                         submitBtn.disabled = false;
                         submitBtn.innerHTML = originalBtnText;
