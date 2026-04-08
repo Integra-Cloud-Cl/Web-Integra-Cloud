@@ -511,11 +511,37 @@
     </footer>
 
     <script>
+        // Clean URL: Remove fragment (#) from URL bar
+        function cleanURL() {
+            if (window.location.hash) {
+                history.pushState(null, null, window.location.pathname);
+            }
+        }
+
         // Force scroll to top on refresh
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
         window.scrollTo(0, 0);
+        cleanURL();
+
+        // Smooth Scroll & Clean Hash on Click
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Elimina el fragmento de la URL sin recargar
+                    history.pushState(null, null, window.location.pathname);
+                }
+            });
+        });
 
         // Sticky Header Effect
         window.addEventListener('scroll', () => {
