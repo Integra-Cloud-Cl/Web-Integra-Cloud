@@ -562,11 +562,11 @@
                         successMsg.style.display = 'flex';
                         successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         
-                        // Disparar confeti de celebración
+                        // Disparar confeti de celebración desde la derecha (donde está el mensaje)
                         confetti({
                             particleCount: 150,
                             spread: 70,
-                            origin: { y: 0.6 },
+                            origin: { x: 0.8, y: 0.5 },
                             colors: ['#007cf0', '#00dfd8', '#10b981', '#ffffff']
                         });
                     }, (err) => {
