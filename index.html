@@ -562,7 +562,8 @@
                     }, (err) => {
                         submitBtn.disabled = false;
                         submitBtn.innerHTML = originalBtnText;
-                        alert("Hubo un error al enviar el mensaje. Por favor, intenta nuevamente o contáctanos por email directo.");
+                        const errorMsg = err.text || err.message || "Error desconocido";
+                        alert("Error al enviar (" + err.status + "): " + errorMsg + ". Por favor, verifica la configuración en EmailJS o contáctanos por email.");
                         console.error('EmailJS Error:', err);
                     });
             });
