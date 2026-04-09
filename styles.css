@@ -34,8 +34,17 @@ body {
     font-family: var(--font-main);
     line-height: 1.6;
     overflow-x: hidden;
+    cursor: url('cursor-arrow.svg?v=2') 3 3, auto !important;
 }
 
+/* Custom Pointer Cursor (Scaled Native Hand) for interactive elements */
+a, button, input[type="submit"], input[type="button"], .btn, .social-icon, .accordion-header, label {
+    cursor: url('mi-mano.svg?v=3') 12 4, pointer !important;
+}
+
+a *, button *, .btn *, .social-icon *, .accordion-header *, label * {
+    cursor: inherit !important;
+}
 /* Custom Cursor Aura */
 .cursor-glow {
     position: fixed;
@@ -1321,25 +1330,198 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.1rem;
 }
 
+/* --- REIMAGINED MODERN FOOTER --- */
 .footer {
     background-color: var(--bg-main);
-    padding: 4rem 5%;
-    border-top: 1px solid var(--border-color);
-    text-align: center;
+    padding: 3rem 5% 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 10;
 }
 
-.footer-content {
+.footer-main-row {
+    max-width: 1200px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+}
+
+.footer-legal-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-legal-links a {
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-legal-links a:hover {
+    color: var(--text-primary);
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.footer-social-icons a {
+    color: rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.footer-social-icons a:hover {
+    color: var(--text-primary);
+    transform: translateY(-2px);
+}
+
+.footer-social-icons svg {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-bottom-info {
     max-width: 1200px;
     margin: 0 auto;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    padding-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
 }
 
-.footer p {
+.footer-bottom-info p {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+}
+
+.footer-bottom-info .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+
+/* Logos en el footer: Blanco translúcido / Sin color */
+.footer .logo-icon {
+    filter: brightness(0) invert(1);
+    opacity: 0.25;
+    height: 30px;
+    transition: opacity 0.3s ease;
+}
+
+.footer .logo-text {
+    color: white;
+    opacity: 0.25;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: opacity 0.3s ease;
+}
+
+.footer .footer-logo:hover .logo-icon,
+.footer .footer-logo:hover .logo-text {
+    opacity: 0.5;
+}
+
+/* Content adjustment for legal pages */
+.legal-section {
+    padding: 8rem 5% 6rem;
+    background: var(--bg-main);
+    min-height: calc(100vh - 200px);
+}
+
+.legal-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.legal-content {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 4rem;
+    border-radius: 1.5rem;
+}
+
+.legal-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    color: white;
+}
+
+.legal-content h2 {
+    font-size: 1.5rem;
+    color: white;
+    margin: 2.5rem 0 1rem;
+}
+
+.legal-content p, .legal-content li {
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+}
+
+/* Updated Responsive Footer */
+@media (max-width: 992px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+    
+    .footer-brand {
+        grid-column: span 2;
+        text-align: center;
+    }
+    
+    .footer-brand p {
+        margin: 0 auto 1.5rem;
+    }
+    
+    .footer-brand .logo {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-brand {
+        grid-column: span 1;
+    }
+    
+    .footer-links a {
+        justify-content: center;
+    }
+    
+    .footer-social-links {
+        justify-content: center;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .legal-content {
+        padding: 2.5rem 1.5rem;
+    }
 }
 
 /* Responsive adjust */
