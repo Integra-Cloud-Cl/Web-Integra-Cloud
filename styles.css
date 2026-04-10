@@ -499,6 +499,45 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 4rem;
 }
 
+.services-grid-4 {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+/* Hero benefits list */
+.hero-benefits {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 2rem;
+    margin-bottom: 3rem;
+    padding: 0;
+}
+
+.hero-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.benefit-check {
+    color: #10b981;
+    font-size: 1.1rem;
+}
+
+/* Service result line */
+.service-result {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.9rem !important;
+    color: #10b981 !important;
+}
+
+
 .service-card {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -1524,8 +1563,51 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Responsive adjust */
+/* ========================================
+   RESPONSIVE - Fix horizontal overflow
+   ======================================== */
+
+/* Base fix: prevent horizontal overflow globally */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+* {
+    max-width: 100%;
+}
+
+/* Fix blobs that exceed screen bounds */
+.hero-bg-blobs,
+.blob {
+    overflow: hidden;
+}
+
+.blob-1,
+.blob-2 {
+    max-width: 100vw;
+}
+
+/* ---- Tablet: 992px ---- */
 @media (max-width: 992px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+    
+    .footer-brand {
+        grid-column: span 2;
+        text-align: center;
+    }
+    
+    .footer-brand p {
+        margin: 0 auto 1.5rem;
+    }
+    
+    .footer-brand .logo {
+        justify-content: center;
+    }
+
     .cta-container {
         flex-direction: column;
         padding: 3rem 2rem;
@@ -1543,6 +1625,7 @@ h1, h2, h3, h4, h5, h6 {
     .glass-report {
         transform: perspective(1000px) rotateY(0) rotateX(0);
         margin-top: 2rem;
+        width: 100%;
     }
     
     .cta-container:hover .glass-report {
@@ -1558,24 +1641,282 @@ h1, h2, h3, h4, h5, h6 {
     .direct-contact {
         width: 100%;
     }
+
+    .cases-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .services-grid-4 {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
+/* ---- Mobile: 768px ---- */
 @media (max-width: 768px) {
+    /* Navbar */
+    .navbar {
+        padding: 1rem 5%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
     .navbar nav {
         display: none;
     }
-    .hero-section {
-        padding-top: 8rem;
+
+    .nav-cta {
+        display: none;
     }
+
+    /* Hero */
+    .hero-section {
+        padding: 8rem 5% 5rem;
+        min-height: auto;
+    }
+
+    .hero-container {
+        width: 100%;
+        padding: 0;
+    }
+
+    .hero-title {
+        font-size: clamp(1.9rem, 7vw, 2.8rem);
+        word-break: break-word;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-benefits {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+
     .hero-cta-group {
         flex-direction: column;
         width: 100%;
-        max-width: 300px;
+        max-width: 320px;
+        margin-bottom: 3rem;
     }
+
     .btn {
         width: 100%;
+        text-align: center;
+        justify-content: center;
     }
+
     .trust-logos {
         gap: 1.5rem;
     }
+
+    /* Blobs: reduce size so they don't overflow */
+    .blob-1 {
+        width: 300px;
+        height: 300px;
+    }
+
+    .blob-2 {
+        width: 250px;
+        height: 250px;
+    }
+
+    /* Sections padding */
+    .pain-section,
+    .partners-section,
+    .services-section,
+    .process-section,
+    .cases-section,
+    .testimonials-section,
+    .cta-section,
+    .contact-section {
+        padding: 4rem 5%;
+    }
+
+    .section-title {
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
+        word-break: break-word;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+    }
+
+    /* Pain grid */
+    .pain-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Partners grid */
+    .partners-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Services */
+    .services-grid,
+    .services-grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    /* Process */
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Cases */
+    .cases-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* CTA section */
+    .cta-container {
+        padding: 2.5rem 1.5rem;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .cta-title {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        word-break: break-word;
+    }
+
+    .cta-list {
+        text-align: left;
+    }
+
+    /* Final CTA */
+    .final-cta-container {
+        padding: 0 1rem;
+        word-break: break-word;
+    }
+
+    .final-cta h2 {
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
+    }
+
+    /* Contact section */
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .contact-title {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+
+    /* Form */
+    .contact-form-container,
+    .contact-form {
+        width: 100%;
+    }
+
+    /* Glass report mock */
+    .glass-report {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
 }
+
+/* ---- Small mobile: 480px ---- */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: clamp(1.6rem, 8vw, 2rem);
+    }
+
+    .hero-section {
+        padding: 7rem 4% 4rem;
+    }
+
+    .pain-section,
+    .partners-section,
+    .services-section,
+    .process-section,
+    .cases-section,
+    .testimonials-section,
+    .cta-section,
+    .contact-section {
+        padding: 3rem 4%;
+    }
+
+    .service-card,
+    .pain-card,
+    .partner-card,
+    .process-step,
+    .case-card,
+    .testimonial-card {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .cta-container {
+        padding: 2rem 1.25rem;
+        border-radius: 1rem;
+    }
+
+    .process-microcopy {
+        font-size: 0.85rem;
+        padding: 0.75rem 1.25rem;
+    }
+
+    .form-submit-large {
+        font-size: 0.95rem;
+        padding: 0.875rem 1.25rem;
+    }
+}
+
+/* ---- Footer: small screens ---- */
+@media (max-width: 576px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-brand {
+        grid-column: span 1;
+    }
+    
+    .footer-links a {
+        justify-content: center;
+    }
+    
+    .footer-social-links {
+        justify-content: center;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .legal-content {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .footer-main-row {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-legal-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
