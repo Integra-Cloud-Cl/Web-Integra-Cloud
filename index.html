@@ -6,9 +6,9 @@
     <title>Integra Cloud | Desarrollo Web, Migración WordPress y Soporte TI en Chile</title>
     <meta name="description" content="Impulsa tu empresa con Integra Cloud. Especialistas en diseño web profesional, migración WordPress sin caídas y soporte TI corporativo en Chile. Diagnóstico Gratis.">
     <!-- Favicon (Miniatura de pestaña) -->
-    <link rel="icon" type="image/png" href="logo.png?v=3">
-    <link rel="shortcut icon" href="logo.png?v=3">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="assets/img/logo.png?v=3">
+    <link rel="shortcut icon" href="assets/img/logo.png?v=3">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- EmailJS SDK -->
@@ -19,6 +19,8 @@
             emailjs.init("_G714NUKQD1e--o-X");
         })();
     </script>
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <!-- Animation Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 </head>
@@ -30,7 +32,7 @@
     <header class="navbar">
         <a href="#inicio" class="logo">
             <!-- NOTA: Guarda la imagen que pasaste sin fondo blanco (PNG transparente) con el nombre 'logo.png' en esta misma carpeta -->
-            <img src="logo.png" alt="Integra Cloud" class="logo-icon">
+            <img src="assets/img/logo.png" alt="Integra Cloud" class="logo-icon">
             <span class="logo-text">Integra<span class="highlight">Cloud</span></span>
         </a>
         <nav>
@@ -55,7 +57,8 @@
             
             <!-- Pain point focused headline -->
             <h1 class="hero-title">
-                Automatiza tu negocio con <span class="text-gradient">soluciones cloud e inteligencia artificial</span>
+                <span class="hero-line-1">Automatiza tu negocio con</span>
+                <span class="text-gradient hero-line-2">soluciones cloud e inteligencia artificial</span>
             </h1>
             
             <!-- Results focused subtitle -->
@@ -73,7 +76,7 @@
             <!-- Dual CTAs -->
             <div class="hero-cta-group">
                 <a href="#formulario" class="btn btn-primary">
-                    Agenda una demo gratis
+                    Agenda una reunión gratis
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
                 <a href="#servicios" class="btn btn-secondary">
@@ -232,7 +235,7 @@
                         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                     </div>
                     <h3>1. Diagnóstico Corto</h3>
-                    <p>Auditamos tu operación para descubrir fugas de dinero o barreras de crecimiento.</p>
+                    <p>Analizamos tu operación para descubrir fugas de dinero o barreras de crecimiento.</p>
                     <div class="trust-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Resultados medibles</div>
                 </div>
                 
@@ -420,11 +423,11 @@
     <section class="cta-section" id="contacto">
         <div class="cta-container">
             <div class="cta-content">
-                <h2 class="cta-title">Agenda una demo gratuita</h2>
+                <h2 class="cta-title">Agenda una reunión gratuita</h2>
                 <p class="cta-subtitle">Te mostramos en 30 minutos cómo automatizar tu negocio y mejorar tu operación.<br><strong>Sin compromiso.</strong></p>
                 
                 <ul class="cta-list">
-                    <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Demo personalizada:</strong> Adaptada a los procesos reales de tu negocio.</li>
+                    <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Reunión personalizada:</strong> Adaptada a los procesos reales de tu negocio.</li>
                     <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Sin tecnicismos:</strong> Te explicamos todo en lenguaje simple y directo.</li>
                     <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Plan de acción:</strong> Te decimos exactamente qué puedes mejorar y cómo.</li>
                 </ul>
@@ -467,7 +470,7 @@
             <h2>Tecnología simple, resultados reales</h2>
             <p>En Integracloud no solo implementamos tecnología, resolvemos problemas reales de negocio.<br>Tu crecimiento es nuestro objetivo.</p>
             <a href="#formulario" class="btn cta-btn-large">
-                Agenda tu demo gratuita
+                Agenda tu reunión gratuita
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.5rem;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
         </div>
@@ -477,11 +480,11 @@
     <section class="contact-section" id="formulario">
         <div class="contact-wrapper">
             <div class="contact-info">
-                <h2 class="contact-title">Agenda una demo gratuita</h2>
+                <h2 class="contact-title">Agenda una reunión gratuita</h2>
                 <p class="contact-subtitle">Te mostramos en 30 minutos cómo automatizar tu negocio y mejorar tu operación. Sin compromiso.</p>
                 
                 <div class="contact-incentive">
-                    <span class="incentive-badge">🎁 Demo Gratuita</span>
+                    <span class="incentive-badge">🎁 Reunión Gratuita</span>
                     <p><strong>30 minutos que pueden cambiar tu operación.</strong> Te mostramos exactamente cómo aplicar automatización e IA en tu negocio, sin tecnicismos.</p>
                 </div>
                 
@@ -507,7 +510,7 @@
                     </div>
                     
                     <!-- Campo oculto para la fuente (Source) -->
-                    <input type="hidden" name="source" value="Landing Principal - Demo Gratuita">
+                    <input type="hidden" name="source" value="Landing Principal - Reunión Gratuita">
                     <!-- Campo oculto para la fecha/hora (Time) -->
                     <input type="hidden" name="time" id="formTime">
                     
@@ -534,7 +537,7 @@
                     </div>
                     
                     <button type="submit" class="btn btn-primary form-submit form-submit-large">
-                        Agendar mi demo gratis
+                        Agendar mi reunión gratis
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                     </button>
                     
@@ -547,8 +550,8 @@
                 <!-- Mensaje de éxito UX -->
                 <div class="form-success-message" id="successMessage" style="display: none;">
                     <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                    <h3>¡Demo agendada con éxito!</h3>
-                    <p>El equipo de Integracloud se pondrá en contacto contigo a la brevedad para coordinar tu demo. ¡Prepárate para transformar tu operación!</p>
+                    <h3>¡Reunión agendada con éxito!</h3>
+                    <p>El equipo de Integracloud se pondrá en contacto contigo a la brevedad para coordinar tu reunión. ¡Prepárate para transformar tu operación!</p>
                 </div>
             </div>
         </div>
@@ -558,10 +561,10 @@
     <footer class="footer">
         <div class="footer-main-row">
             <ul class="footer-legal-links">
-                <li><a href="politica-cookies.html">Política de Cookies</a></li>
-                <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
-                <li><a href="terminos-uso.html">Términos de Uso</a></li>
-                <li><a href="declaracion-accesibilidad.html">Declaración de Accesibilidad</a></li>
+                <li><a href="legales/politica-cookies.html">Política de Cookies</a></li>
+                <li><a href="legales/politica-privacidad.html">Política de Privacidad</a></li>
+                <li><a href="legales/terminos-uso.html">Términos de Uso</a></li>
+                <li><a href="legales/declaracion-accesibilidad.html">Declaración de Accesibilidad</a></li>
             </ul>
             <div class="footer-social-icons">
                 <a href="#" target="_blank" aria-label="LinkedIn">
@@ -580,7 +583,7 @@
         </div>
         <div class="footer-bottom-info">
             <a href="index.html" class="footer-logo">
-                <img src="logo.png" alt="Integra Cloud" class="logo-icon">
+                <img src="assets/img/logo.png" alt="Integra Cloud" class="logo-icon">
                 <span class="logo-text">Integra Cloud</span>
             </a>
             <p>&copy; 2026 Integra Cloud | Desarrollado por <strong>Integra Cloud</strong></p>
@@ -614,6 +617,17 @@
                     targetElement.scrollIntoView({
                         behavior: 'smooth'
                     });
+                    
+                    // Si el destino es el formulario, hacer foco en el campo de nombre
+                    if (targetId === '#formulario') {
+                        setTimeout(() => {
+                            const nameInput = document.getElementById('name');
+                            if (nameInput) {
+                                nameInput.focus({ preventScroll: true });
+                            }
+                        }, 500);
+                    }
+                    
                     // Elimina el fragmento de la URL sin recargar
                     history.pushState(null, null, window.location.pathname);
                 }
@@ -629,6 +643,11 @@
                 header.classList.remove('scrolled');
             }
         });
+
+        // Supabase Client Initialization
+        const supabaseUrl = 'https://yraroqntugnsanvwxrqn.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlyYXJvcW50dWduc2Fudnd4cnFuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY3Mjk1NTUsImV4cCI6MjA5MjMwNTU1NX0.PHMZTOkgcByv6BfbVnLBzsyyYmmL-eoOpxpR6Zf4Ip4';
+        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
         // Form Submit with EmailJS
         const contactForm = document.getElementById('integraForm');
@@ -650,13 +669,28 @@
 
                 // Generar la fecha y hora actual para el campo {{time}}
                 const now = new Date();
-                document.getElementById('formTime').value = now.toLocaleString('es-CL', { 
+                const formattedTime = now.toLocaleString('es-CL', { 
                     timeZone: 'America/Santiago',
                     day: '2-digit', 
                     month: '2-digit', 
                     year: 'numeric', 
                     hour: '2-digit', 
                     minute: '2-digit' 
+                });
+                document.getElementById('formTime').value = formattedTime;
+
+                // Guardar en Supabase (en paralelo, sin bloquear el envío del correo)
+                const formData = new FormData(contactForm);
+                supabase.from('leads').insert([{
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    company: formData.get('company') || null,
+                    service: formData.get('service'),
+                    message: formData.get('message'),
+                    source: formData.get('source'),
+                    time: formattedTime
+                }]).then(({ error }) => {
+                    if (error) console.error("Error guardando lead en Supabase:", error);
                 });
 
                 emailjs.sendForm(serviceID, templateID, this)
