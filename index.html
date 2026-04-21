@@ -5,18 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Integra Cloud | Desarrollo Web, Migración WordPress y Soporte TI en Chile</title>
     <meta name="description" content="Impulsa tu empresa con Integra Cloud. Especialistas en diseño web profesional, migración WordPress sin caídas y soporte TI corporativo en Chile. Diagnóstico Gratis.">
+    <link rel="canonical" href="https://integracloud.cl/" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://integracloud.cl/">
+    <meta property="og:title" content="Integra Cloud | Automatización y Soporte TI en Chile">
+    <meta property="og:description" content="Especialistas en diseño web profesional, migración WordPress sin caídas y soporte TI corporativo en Chile.">
+    <meta property="og:image" content="https://integracloud.cl/assets/img/logo.png">
+
     <!-- Favicon (Miniatura de pestaña) -->
     <link rel="icon" type="image/png" href="assets/img/logo.png?v=3">
     <link rel="shortcut icon" href="assets/img/logo.png?v=3">
     <link rel="stylesheet" href="assets/css/styles.css">
+    
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
             // Llave pública proporcionada por el usuario
-            emailjs.init("_G714NUKQD1e--o-X");
+            emailjs.init("6Bnq58ulPIFad4xma");
         })();
     </script>
     <!-- Supabase JS -->
@@ -499,6 +512,12 @@
             
             <div class="contact-form-container">
                 <form class="contact-form" id="integraForm">
+                    <!-- Campo Honeypot para evitar spam de bots (Oculto al usuario real) -->
+                    <div style="display: none;" aria-hidden="true">
+                        <label for="website_url">Deja este campo vacío si eres humano:</label>
+                        <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
+                    </div>
+
                     <div class="form-group">
                         <label for="name">Tu Nombre</label>
                         <input type="text" id="name" name="name" placeholder="Ej: Diego Hernández" required>
@@ -567,16 +586,13 @@
                 <li><a href="legales/declaracion-accesibilidad.html">Declaración de Accesibilidad</a></li>
             </ul>
             <div class="footer-social-icons">
-                <a href="#" target="_blank" aria-label="LinkedIn">
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                 </a>
-                <a href="#" target="_blank" aria-label="X">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
-                </a>
-                <a href="#" target="_blank" aria-label="Instagram">
+                <a href="https://www.instagram.com/integracloud.cl/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                 </a>
-                <a href="#" target="_blank" aria-label="YouTube">
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
                 </a>
             </div>
@@ -658,14 +674,22 @@
             contactForm.addEventListener('submit', function(event) {
                 event.preventDefault();
                 
+                // --- BOT PROTECTION (Honeypot) ---
+                const honeypot = document.getElementById('website_url').value;
+                if (honeypot) {
+                    // Si el campo oculto está lleno, es un bot. Retornamos sin enviar nada pero simulamos éxito
+                    console.warn("Bot detectado por honeypot. Envío abortado silenciosamente.");
+                    return;
+                }
+                
                 // Cambiar estado del botón
                 const originalBtnText = submitBtn.innerHTML;
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = 'Enviando...';
 
                 // Estos IDs reales proporcionados por el usuario
-                const serviceID = 'service_r961mc9';
-                const templateID = 'template_uptioib';
+                const serviceID = 'service_rje68ul';
+                const templateID = 'template_wxwv7ht';
 
                 // Generar la fecha y hora actual para el campo {{time}}
                 const now = new Date();
